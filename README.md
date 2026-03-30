@@ -1,6 +1,6 @@
 # Hestia Linux
 
-Systemd units and sleep script for the original Linux implementation of Hestia's smart sleep/wake cycle. Hestia is a Lenovo ThinkPad X1 Carbon 5th Gen embedded in a door, running as the brain of **The Monidoor** — a touchscreen calendar, kitchen entertainment system, scrolling picture frame, and digital hearth of the home.
+Systemd units and sleep script for the original Linux implementation of Hestia's smart sleep/wake cycle. Hestia is a Lenovo ThinkPad X1 Carbon 5th Gen embedded in a door, running as the brain of **The Monidoor** a touchscreen calendar, kitchen entertainment system, scrolling picture frame, and digital hearth of the home.
 
 This repo is archived. Hestia now runs Windows 10 LTSC. The Windows implementation is at [github.com/foodbark/hestia](https://github.com/foodbark/hestia). The full backstory is at [foodbark.io](https://foodbark.io/posts/the-big-sleep-and-wake-cycle/).
 
@@ -74,6 +74,6 @@ tail -20 /var/log/hestia-sleep-wake.log
 
 ## Why This Is Simpler Than Windows
 
-Linux exposes direct hardware RTC access via `/sys/class/rtc/rtc0/wakealarm`. `rtcwake` writes a Unix timestamp to that file and the hardware alarm fires regardless of sleep state — S3, S4, doesn't matter. One command sets the alarm and suspends.
+Linux exposes direct hardware RTC access via `/sys/class/rtc/rtc0/wakealarm`. `rtcwake` writes a Unix timestamp to that file and the hardware alarm fires regardless of sleep state S3, S4, doesn't matter. One command sets the alarm and suspends.
 
 Windows does not expose direct RTC access. Wake timers on Windows are registered with the kernel and only survive Hybrid Sleep (S3), not full hibernate (S4). This requires careful power plan configuration to keep the machine in S3 long enough for the timer to fire. See the Windows repo for the full details.
