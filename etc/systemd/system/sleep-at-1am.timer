@@ -1,0 +1,10 @@
+[Unit]
+Description=Sleep at 1:00 AM Fri-Sat nights
+
+[Timer]
+OnCalendar=Fri,Sat 01:00:00
+Persistent=true
+Unit=sleep-at.service
+
+[Install]
+WantedBy=timers.target

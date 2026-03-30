@@ -1,0 +1,10 @@
+[Unit]
+Description=Set RTC wake alarm and suspend system
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/smart-suspend.sh
+
+[Install]
+WantedBy=multi-user.target

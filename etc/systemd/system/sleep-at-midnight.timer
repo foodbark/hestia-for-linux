@@ -1,0 +1,10 @@
+[Unit]
+Description=Sleep at midnight Sun-Thu nights
+
+[Timer]
+OnCalendar=Sun,Mon,Tue,Wed,Thu 00:00:00
+Persistent=true
+Unit=sleep-at.service
+
+[Install]
+WantedBy=timers.target
