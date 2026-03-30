@@ -4,6 +4,19 @@ Systemd units and sleep script for the original Linux implementation of Hestia's
 
 This repo is archived. Hestia now runs Windows 10 LTSC. The Windows implementation is at [github.com/foodbark/hestia](https://github.com/foodbark/hestia). The full backstory is at [foodbark.io](https://foodbark.io/posts/the-big-sleep-and-wake-cycle/).
 
+## Hardware
+
+| | |
+|---|---|
+| **Machine** | Lenovo ThinkPad X1 Carbon 5th Gen (20HRCTO1WW) |
+| **OS** | Confrimed functionality on Ubuntu 24.04.4 LTS (Noble Numbat) and Fedora 43 |
+| **BIOS** | N1MET78W (1.63) |
+| **CPU** | Intel i7-7500U |
+| **RAM** | 16GB |
+| **Network** | WiFi only — Intel 8265 (no RJ45) |
+| **Sleep states** | S3 (Standby) and Hibernate available |
+| **Display** | ASUS BE24ECSBT 23.8" multi-touchscreen monitor (laptop lid always closed) |
+
 ## How It Works
 
 Two systemd timers fire at bedtime and trigger a oneshot service that runs `smart-suspend.sh`. The script calculates the correct wake time based on the day of week, writes it directly to the hardware RTC via `rtcwake`, and suspends the system. On wake, the RTC alarm fires and the machine comes back up — no scheduled task, no wake timer registry, just hardware.
