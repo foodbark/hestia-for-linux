@@ -19,7 +19,7 @@ This repo is archived. Hestia now runs Windows 10 LTSC. The Windows implementati
 
 ## How It Works
 
-Two systemd timers fire at bedtime and trigger a oneshot service that runs `smart-suspend.sh`. The script calculates the correct wake time based on the day of week, writes it directly to the hardware RTC via `rtcwake`, and suspends the system. On wake, the RTC alarm fires and the machine comes back up — no scheduled task, no wake timer registry, just hardware.
+Two systemd timers fire at bedtime and trigger a oneshot service that runs `smart-suspend.sh`. The script calculates the correct wake time based on the day of week, writes it directly to the hardware RTC via `rtcwake`, and suspends the system. On wake, the RTC alarm fires and the machine comes back up.  Linux is awesome, no scheduled task or wake timer registry needed, just hardware.
 
 ```
 sleep-at-midnight.timer  (Sun–Thu 00:00)  ──┐
